@@ -1,4 +1,4 @@
-package hello.advanced.strategy;
+package hello.advanced.strategy.strategy;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,5 +1,6 @@
 package hello.advanced.strategy;
 
+import hello.advanced.strategy.strategy.Strategy;
 import lombok.extern.slf4j.Slf4j;
 
 /**

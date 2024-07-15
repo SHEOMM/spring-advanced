@@ -1,4 +1,4 @@
-package hello.advanced.strategy;
+package hello.advanced.strategy.strategy;
 
 public interface Strategy {
     void call();
