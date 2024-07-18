@@ -1,12 +1,17 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.6'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'org.springframework.boot' version '3.3.1'
+	id 'io.spring.dependency-management' version '1.1.5'
 }
 
 group = 'hello'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
 
 configurations {
 	compileOnly {
@@ -20,16 +25,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.springframework.boot:spring-boot-starter-aop' //직접 추가
-
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	//테스트에서 lombok 사용
-	testCompileOnly 'org.projectlombok:lombok'
-	testAnnotationProcessor 'org.projectlombok:lombok'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-test {
+tasks.named('test') {
 	useJUnitPlatform()
 }
