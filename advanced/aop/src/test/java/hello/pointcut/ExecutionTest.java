@@ -1,4 +1,4 @@
-package hello.aop.pointcut;
+package hello.pointcut;
 
 import hello.aop.member.MemberServiceImpl;
 import lombok.extern.slf4j.Slf4j;
