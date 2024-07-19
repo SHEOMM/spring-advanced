@@ -1,4 +1,4 @@
-package hello.pointcut;
+package hello.aop.pointcut;
 
 import hello.aop.member.MemberServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,6 +47,7 @@ public class ArgsTest {
         //Args
         assertThat(pointcut("args(String)")
                 .matches(helloMethod, MemberServiceImpl.class)).isTrue();
+        //String은 Serializable을 구현하고 있기 때문에 가능.
         assertThat(pointcut("args(java.io.Serializable)")
                 .matches(helloMethod, MemberServiceImpl.class)).isTrue();
         assertThat(pointcut("args(Object)")
@@ -54,6 +55,7 @@ public class ArgsTest {
         //Execution
         assertThat(pointcut("execution(* *(String))")
                 .matches(helloMethod, MemberServiceImpl.class)).isTrue();
+        // args는 부모 타입도 가능. execution은 정확히 매칭.
         assertThat(pointcut("execution(* *(java.io.Serializable))") //매칭 실패
                 .matches(helloMethod, MemberServiceImpl.class)).isFalse();
         assertThat(pointcut("execution(* *(Object))") //매칭 실패
